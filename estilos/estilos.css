@@ -1,0 +1,57 @@
+@import url("estilos_index.css");
+
+body{
+	background: rgba(0,0,0,0.3);
+}
+
+table{
+	border:2px solid black;
+	width: 70%;
+	margin: auto;
+	border-spacing: 0;
+}
+
+tr td{
+	border:1px solid black;
+	text-align: center;
+	font: bold 14px sans-serif;
+	padding: 5px;
+	border-spacing: 0;
+}
+
+button img{
+	text-align: center;
+}
+
+form #atras, #act{
+	width: 180px;
+	height: 70px;
+	margin: 0;
+}
+
+#act{
+	float: right;
+	border-radius: 10px;
+	box-shadow: 5px 10px gray;
+}
+
+form #atras{
+	float: left;
+	background: rgba(255,255,255,0.4);
+}
+
+#act:hover {
+	cursor: pointer;
+}
+
+@media(min-width: 768px) {
+	form #atras {
+		margin-left: 7%;
+		width: 200px;
+	}
+
+	#act {
+		margin-right: 7%;
+		width: 200px;
+	}
+}

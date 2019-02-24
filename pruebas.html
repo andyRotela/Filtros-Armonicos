@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo aprenderaprogramar.com</title>
+	<meta charset="utf-8">
+	<script type="text/javascript">
+		window.onload = function () {
+			var elemsH = document.querySelectorAll("h1, h2, h3, h4, h5, h6");
+			
+			for (var i=0; i < elemsH.length; i++) {
+				elemsH[i].addEventListener("mouseover", cambiarColor1);
+				elemsH[i].addEventListener("mouseout", cambiarColor2);
+			}
+			function cambiarColor1() { 
+				this.style.color = 'orange';
+			}
+			function cambiarColor2() {
+				this.style.color = 'brown';
+			}
+		}
+	</script>
+</head>
+<body>
+	<p>
+		<a href="principal.html" title="Página principal" >Ir a la pagina principal</a>
+	</p>
+	<h1>Novedades</h1>
+	<p>Aquí presentamos las novedades del sitio.</p>
+	<h3>Lanzamos el producto X-FASHION</h3>
+	<p>Este producto permite estirar la piel hasta dejarla como la de un bebé.</p>
+	<p>
+		<img src="http://i.imgur.com/tq5Bs.png" title="Imagen del producto" alt="imagen producto x-fashion" />
+	</p>
+	<h3>Mejoramos el producto T-MOTION</h3>
+	<p>Hemos lanzado una nueva versión del producto T-MOTION</p>	
+	<p>
+		<img src="http://i.imgur.com/SpZyc.png" title="Imagen del proudcto tmotion" alt="imagen producto tmotion" />
+	</p>
+</body>
+</html>

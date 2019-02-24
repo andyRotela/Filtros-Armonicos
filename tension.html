@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	 <title>Filtros A.</title>
+	 <link rel="stylesheet" href="estilos/estilos.css">
+	<script src="estilos/design.js"></script>
+</head>
+<body>
+	<!-- Titulo de la ventana principal-->
+	<header id="principal">
+		<h1 id="titulo">Tensiones</h1>
+	</header>
+
+	<!-- Boton para volver al menu principal-->
+	<form action="index.html">
+		<input id="atras" type="submit" value="volver..">
+	</form>
+
+	<!-- Boton para actualizar los datos-->
+	<button onclick=tension() id="act"> <img src="actualizar.png" width="50" height="50"></button>
+	<br><br><br><br><br><br>
+	
+	<div>
+		<table>
+			<tr>
+				<td id="TImediciones">Mediciones</td>
+				<td id="TIvalores">Valores</td>
+				<td id="TIunidades">Unidades</td>
+			</tr>
+			<tr>
+				<td class="mediciones">Vrms L1-L2</td>
+				<td class="valores" id="val_Vrms_L1_L2" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> Vrms L2-L3 </td>
+				<td class="valores" id="val_Vrms_L2_L3"  >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> Vrms L1-L3 </td>
+				<td class="valores" id="val_Vrms_L1_L3" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> Vrms L-L</td>
+				<td class="valores" id="val_Vrms_L_L">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 <tr>
+				<td class="mediciones"> Vrm L1-N </td>
+				<td class="valores" id="val_Vrms_L1_N">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 	<tr>
+				<td class="mediciones"> Vrm L2-N</td>
+				<td class="valores" id="val_Vrms_L2_N" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 <tr>
+				<td class="mediciones"> Vrm L3-N</td>
+				<td class="valores" id="val_Vrms_L3_N" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 	<tr>
+				<td class="mediciones"> Vrm L-N </td>
+				<td class="valores" id="val_Vrms_L_N">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 <tr>
+				<td class="mediciones">V1 L1-L2</td>
+				<td class="valores" id="val_L1_L2">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			 <tr>
+				<td class="mediciones"> V1 L2-L3 </td>
+				<td class="valores" id="val_L2_L3">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> V1 L1-L3 </td>
+				<td class="valores" id="val_L1_L3">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> V1 L-L </td>
+				<td class="valores" id="val_L_L">- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> V1 L1-N </td>
+				<td class="valores" id="val_L1_N" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> V1 L2-N</td>
+				<td class="valores" id="val_L2_N" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+			<tr>
+				<td class="mediciones"> V1 L3-N </td>
+				<td class="valores" id="val_L3_N" >- - - - -</td>
+				<td class="unidades">V</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L1-L2</td>
+				<td class="valores" id="thdv_L1_L2" >- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L2-L3</td>
+				<td class="valores" id="thdv_L2_L3" >- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L1-L3</td>
+				<td class="valores" id="thdv_L1_L3">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L-L</td>
+				<td class="valores" id="thdv_L_L">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L1-N</td>
+				<td class="valores" id="thdv_L1_N">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L2-N</td>
+				<td class="valores" id="thdv_L2_N">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L3-N</td>
+				<td class="valores" id="thdv_L3_N">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">THDV L-N</td>
+				<td class="valores" id="thdv_L_N">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">Frecuencia</td>
+				<td class="valores" id="frecuencia">- - - - -</td>
+				<td class="unidades">Hz</td>
+			</tr>
+		 <tr>
+				<td class="mediciones">V Desequilibrio</td>
+				<td class="valores" id="desequilibrio">- - - - -</td>
+				<td class="unidades">%</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

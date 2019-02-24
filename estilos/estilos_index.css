@@ -1,0 +1,30 @@
+h1{
+	text-align: center;
+	color: red;
+	font: bold 35px "Lucida Calligraphy";
+	text-shadow: 2px 3px white;
+}
+
+
+input {
+	width: 80%;
+	height: 130px;
+	border-radius: 10px;
+	box-shadow: 5px 10px gray;
+	background: orange;
+	font: bold 15px sans-serif;
+	margin: 5% 10%;
+}
+
+input:hover {
+	cursor: pointer;
+}
+
+@media(min-width: 768px) {
+	input {
+		width: 35%;
+		height: 150px;
+		float: left;
+		margin: 7%;
+	}
+}

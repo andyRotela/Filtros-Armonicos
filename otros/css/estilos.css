@@ -1,0 +1,81 @@
+body{
+	margin: 0;
+	font-family: sans-serif;
+}
+
+header{
+	width: 100%;
+	background: #4e9aab;
+}
+
+#btn-menu{
+	display: none;
+}
+
+header label{
+	display: none;
+	width: 30px;
+	height: 30px;
+	padding: 10px;
+	border-right: 1px solid black;
+}
+
+header label:hover{
+	cursor: pointer;
+	background: rgba(0,0,0,0.3);
+}
+
+.menu ul{
+	margin: 0;
+	list-style: none;
+	padding: 0;
+	display: flex;
+	/*justify-content: flex-end;Hace que todo el menu este hacia la derecha*/
+}
+
+.menu li{
+	border-right: 1px solid #000;
+}
+
+.menu li:hover{
+	background: rgba(0,0,0,0.3);
+}
+.menu li a{
+	display: block;
+	padding: 15px 20px;
+	color: #000;
+	text-decoration: none;
+}
+
+/*Todo lo que sea menor a 768px va a ejecutar eso*/
+@media (max-width: 768px){
+	header label{
+		display: block;
+	}
+
+	.menu{
+		position: absolute;
+		background: #4e9aab;
+		width: 70%;
+		margin-left:-70%; 
+		transition: all 0.5s;
+	}
+
+	.menu ul{
+		flex-direction: column;
+	}
+
+	.menu li{
+		border-top: 1px solid black;
+	}
+
+	/*Cuando se presione o este presionado el checkbox*/
+	/*~ sirve para buscar la clase menu y va a ser como si fuese que estamos seleccionando
+	 la clase menu
+	*/
+	#btn-menu:checked ~ .menu{
+		margin: 0;
+	}
+
+
+}

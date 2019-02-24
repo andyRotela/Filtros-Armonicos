@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	 <title>Filtros A.</title>
+	 <link rel="stylesheet" href="estilos/estilos.css">
+	 <script src="estilos/design.js"></script>
+</head>
+<body>
+	<header id="principal">
+	 <h1 id="titulo">Potencias<h1/>
+	</header>
+	<form action="index.html">
+		<input id="atras" type="submit" value="volver..">
+	</form>
+	<button onclick = potencia() id="act"><img src="actualizar.png" width="50" height="50"></button>
+	<br><br><br><br><br><br>
+	 <div>
+		<table border="solid" >
+			<tr>
+				<td id="TImediciones">Mediciones</td>
+				<td id="TIvalores">Valores</td>
+				<td id="TIunidades">Unidades</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">P1</td>
+				<td class="valores" id="p1">- - - - -</td>
+				<td class="unidades">Kw</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">P2</td>
+				<td class="valores" id="p2">- - - - -</td>
+				<td class="unidades">Kw</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">P3</td>
+				<td class="valores" id="p3">- - - - -</td>
+				<td class="unidades">Kw</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">P</td>
+				<td class="valores" id="p">- - - - -</td>
+				<td class="unidades">Kw</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Q1</td>
+				<td class="valores" id="q1">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Q2</td>
+				<td class="valores" id="q2">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Q3</td>
+				<td class="valores" id="q3">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Q</td>
+				<td class="valores" id="q">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+			<tr>
+				<td class="mediciones">S1</td>
+				<td class="valores" id="s1">- - - - -</td>
+				<td class="unidades">KVA</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">S2</td>
+				<td class="valores" id="s2">- - - - -</td>
+				<td class="unidades">KVA</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">S3</td>
+				<td class="valores" id="s3">- - - - -</td>
+				<td class="unidades">KVA</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">S</td>
+				<td class="valores" id="s">- - - - -</td>
+				<td class="unidades">KVA</td>
+			</tr>
+			<tr>
+				<td class="mediciones">Cos &phi;1</td>
+				<td class="valores" id="cos1">- - - - -</td>
+				<td class="unidades"></td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Cos &phi;2</td>
+				<td class="valores" id="cos2">- - - - -</td>
+				<td class="unidades"></td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Cos &phi;3</td>
+				<td class="valores" id="cos3">- - - - -</td>
+				<td class="unidades"></td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Cos &phi;</td>
+				<td class="valores" id="cos">- - - - -</td>
+				<td class="unidades"></td>
+			</tr>
+			<tr>
+				<td class="mediciones">PF1</td>
+				<td class="valores" id="pf1">- - - - -</td>
+				<td class="unidades">---</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">PF2</td>
+				<td class="valores" id="pf2">- - - - -</td>
+				<td class="unidades">---</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">PF3</td>
+				<td class="valores" id="pf3">- - - - -</td>
+				<td class="unidades">---</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">PF</td>
+				<td class="valores" id="pf">- - - - -</td>
+				<td class="unidades">---</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Ausencia Q1</td>
+				<td class="valores" id="a_q1">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Ausencia Q2</td>
+				<td class="valores" id="a_q2">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Ausencia Q3</td>
+				<td class="valores" id="a_q3">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Ausencia Q</td>
+				<td class="valores" id="a_q">- - - - -</td>
+				<td class="unidades">Kvar</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Pasos ausentes L1 </td>
+				<td class="valores" id="p_a_L1">- - - - -</td>
+				<td class="unidades">pasos</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Pasos ausentes L2</td>
+				<td class="valores" id="p_a_L2">- - - - -</td>
+				<td class="unidades">pasos</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Pasos ausentes L3 </td>
+				<td class="valores" id="p_a_L3">- - - - -</td>
+				<td class="unidades">pasos</td>
+			</tr>
+		 	<tr>
+				<td class="mediciones">Pasos ausentes </td>
+				<td class="valores" id="p_a_L">- - - - -</td>
+				<td class="unidades">pasos</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

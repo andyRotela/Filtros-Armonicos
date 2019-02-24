@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Prueba de todo</h1>
+    <div id="numeros"></div>  
+
+    <button onclick="tiempo()">Conteo</button>
+    <script type="text/javascript">
+
+        function fechas(){
+            var d = new Date();
+            var fecha = d.getDate();
+            var dia_semana = d.getDay()
+            var mes = d.getMonth();
+            var anho = d.getFullYear();
+            var hora = d.getHours();
+            var hora_utc =  d.getUTCHours();
+            var minutos = d.getMinutes();
+            var segundo = d.getSeconds();
+            document.write('Fecha: ' + fecha + '<br>Dia de la semana: '+ dia_semana +'<br>Mes (0 al 11): ' + mes + '<br>Año: '+ anho +'<br>Hora: ' + hora + '<br>Hora UTC: ' + hora_utc + '<br>Minutos: ' + minutos + '<br>Segundos: ' +segundo);
+    
+        }
+
+        window.onload = function(){
+            var n = 0;
+            var l = document.getElementById('numeros');
+
+            window.setInterval(function(){
+                l.innerHTML = n;
+                n++;
+            }, 1000);
+
+        
+        }
+        
+    </script>
+        
+</body>
+</html>
