@@ -503,8 +503,6 @@ function energia(){
 
 	document.getElementById('t_activa').innerHTML = t_e_activa.toFixed(2);
 
-	//potencia();
-
 	document.getElementById('i_reactiva_L1').innerHTML = p_reactiva1.toFixed(2);
 
 
