@@ -3,6 +3,7 @@
 <head>
 	 <title>Filtros A.</title>
 	 <link rel="stylesheet" href="estilos/estilos.css">
+	 <script src="estilos/design.js"></script>
 </head>
 <body>
 	<header id="principal">
@@ -11,7 +12,7 @@
 	<form action="index.html">
 		<input id="atras" type="submit" value="volver..">
 	</form>
- 	<button onclick=actualizar() id="act"><img src="actualizar.png" width="50" height="50"></button>
+ 	<button onclick = temperatura() id="act"><img src="actualizar.png" width="50" height="50"></button>
  	<br><br><br><br><br><br>
 	 <div >
 		<table border="solid" >
@@ -22,7 +23,7 @@
 			</tr>
 		 <tr>
 				<td class="mediciones">Interno T</td>
-				<td class="valores">- - - - -</td>
+				<td class="valores" id="temp_interno">- - - - -</td>
 				<td class="unidades">&deg;C</td>
 			</tr>
 		 <tr>

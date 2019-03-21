@@ -179,7 +179,7 @@ function corrientes_thdi(){
 
 }
 
-//Declaramos las variables que hemos de usar en las distintas potencias
+//Declaramos las variables de forma global que hemos de usar en las distintas potencias
 var p_aparente1, p_aparente2, p_aparente3, p_aparente;
 var p_activa1, p_activa2, p_activa3, p_activa;
 var p_reactiva1, p_reactiva2, p_reactiva3, p_reactiva;
@@ -235,7 +235,7 @@ class potencias{
 
 	//Para calcular la reactiva nos basamos en el triangulo de potencia, que dice la coseno del angulo
 	//es igual a la relacion entre Q/P y de ahi despejamos
-	p_reactiva(angulo1, angulo2, angulo3, angulo){
+	p_reactiva(angulo1, angulo2, angulo3){
 		var p_reactiva_res;
 
         if(angulo2 == null  && angulo3 == null){
@@ -261,7 +261,7 @@ class potencias{
 
 	//Para calcular la aparente nos basamos en el triangulo de potencia, que dice la tangente del angulo
 	//es igual a la relacion entre P/S y de ahi despejamos
-	p_aparente(angulo1, angulo2, angulo3, angulo){
+	p_aparente(angulo1, angulo2, angulo3){
 		var p_aparente_res;
 
         if(angulo2 == null  && angulo3 == null){
@@ -286,10 +286,17 @@ class potencias{
 
 }
 
+var qc_1, qc_2, qc_3, qc;
+var fp1, fp2, fp3, fp;
+var pasos_ausentes_L1 = 0;
+var pasos_ausentes_L2 = 0;
+var pasos_ausentes_L3 = 0; 
+var pasos_ausentes_L = 0;
+var val_potencias;
 
 function potencia(){
 	
-	var val_potencias = new potencias();
+	val_potencias = new potencias();
  
 	p_activa1 = val_potencias.p_activa(phi1, null, null);
 	p_activa2 = val_potencias.p_activa(null, phi2, null);
@@ -309,7 +316,6 @@ function potencia(){
 	p_reactiva = (p_reactiva1 + p_reactiva2 + p_reactiva3)/3;
 
 
-	var fp1, fp2, fp3, fp;
 	var cal_fp1, cal_fp2, cal_fp3, cal_fp;
 	
 	var val_fp1 = new Array();
@@ -322,23 +328,19 @@ function potencia(){
 	capacitores = [10, 25, 100, 120, 220, 330, 470];
 
 	var paso_L1 = new Array();
-	var pasos_ausentes_L1;
 	var pasos_L1;
 
 	var paso_L2 = new Array();
-	var pasos_ausentes_L2;
 	var pasos_L2;
 
 	var paso_L3 = new Array();
-	var pasos_ausentes_L3;
 	var pasos_L3;
 
 	var paso_L = new Array();
-	var pasos_ausentes_L;
 	var pasos_L;
 
-	//Segun los capacitores que se tiene y el coseno de phi de las cargas esta ira corrigiendo de acuerdo a lo que 
-	//se necesita
+	//Segun los capacitores que se tiene y el coseno de phi de las cargas esta ira corrigiendo
+	//de acuerdo a lo que se necesita
 	for(var i=0; i<= 6; i++){
 		cal_fp1 = Math.cos(Math.tan( (capacitores[i] * Math.pow(10,-6) * (Math.pow(volts.voltaje_rms(),2) * ohmega) - p_reactiva1*Math.pow(10,3))/p_activa1*Math.pow(10,3) ) );
 		cal_fp2 = Math.cos(Math.tan( (capacitores[i] * Math.pow(10,-6) * (Math.pow(volts.voltaje_rms(),2) * ohmega) - p_reactiva2*Math.pow(10,3))/p_activa2*Math.pow(10,3) ) );
@@ -379,11 +381,6 @@ function potencia(){
 
 	pasos_L = Math.max.apply(null, paso_L);
 	pasos_ausentes_L = 7 - pasos_L;
-
-	document.getElementById('p_a_L1').innerHTML = pasos_ausentes_L1;
-	document.getElementById('p_a_L2').innerHTML = pasos_ausentes_L2;
-	document.getElementById('p_a_L3').innerHTML = pasos_ausentes_L3;
-	document.getElementById('p_a_L').innerHTML = pasos_ausentes_L;
 	
 	
 	//Sacamos el maximo valor que pudo corregir de acuerdo a los banco de capacitores con los que se cuenta
@@ -394,20 +391,27 @@ function potencia(){
 
 	var q1_1 = p_reactiva1;
 	var q2_1 = p_activa1*Math.tan(Math.acos(fp1));
-	var qc_1 = q1_1 - q2_1;
+	qc_1 = q1_1 - q2_1;
 
 	var q1_2 = p_reactiva2;
 	var q2_2 = p_activa2 * Math.tan(Math.acos(fp2));
-	var qc_2 = q1_2 - q2_2;
+	qc_2 = q1_2 - q2_2;
 
 	var q1_3 = p_reactiva3;
 	var q2_3 = p_activa3 * Math.tan(Math.acos(fp3));
-	var qc_3 = q1_3 - q2_3;
+	qc_3 = q1_3 - q2_3;
 
 	var q1 = p_reactiva;
 	var q2 = p_activa * Math.tan(Math.acos(fp));
-	var qc = q1 - q2;
+	qc = q1 - q2;
 
+}
+function valores_potencia(){
+	potencia();
+	document.getElementById('p_a_L1').innerHTML = pasos_ausentes_L1;
+	document.getElementById('p_a_L2').innerHTML = pasos_ausentes_L2;
+	document.getElementById('p_a_L3').innerHTML = pasos_ausentes_L3;
+	document.getElementById('p_a_L').innerHTML = pasos_ausentes_L;
 
 	document.getElementById('a_q1').innerHTML = qc_1.toFixed(2);
 	document.getElementById('a_q2').innerHTML = qc_2.toFixed(2);
@@ -439,9 +443,12 @@ function potencia(){
 	document.getElementById('q2').innerHTML = p_reactiva2.toFixed(1);
 	document.getElementById('q3').innerHTML = p_reactiva3.toFixed(1);
 	document.getElementById('q').innerHTML = p_reactiva.toFixed(1);
-
-
 }
+
+
+
+//Empezamos a declarar las variables para el tiempo que va transcurriendo 
+//Para que todo pueda hacerse en funcion de tiempo f(t)
 	var segundos = 0;
 	var minutos = 0; 
 	var horas = 0;
@@ -484,6 +491,49 @@ function energia(){
 	e_activa3_sumi = poten.p_activa(phi3, null, null);
 	e_activa_sumi = e_activa1_sumi + e_activa2_sumi + e_activa3_sumi;
 
+	//Calcular la energia reactiva en cuanto a la inductancia
+	e_reactiva1_ind = poten.p_reactiva(phi1, null, null) * sum_horas;
+	e_reactiva2_ind = poten.p_reactiva(phi2, null, null) * sum_horas;
+	e_reactiva3_ind = poten.p_reactiva(phi3, null, null) * sum_horas;
+	
+	//Llamamos a la funcion potencia para que pueda hacer el calculo de qc
+	//y de esa forma poder usarla
+	potencia();
+
+	//Calculo de las potencias reactivas que son eliminadas con la correccion del FP
+	e_reactiva1_cap = qc_1 * sum_horas;
+	e_reactiva2_cap = qc_2 * sum_horas;
+	e_reactiva3_cap = qc_3 * sum_horas;
+
+	//Sumatoria de las potencias reactivas capacitivas
+	t_e_reactiva = (e_reactiva1_ind + e_reactiva2_ind + e_reactiva3_ind) - (e_reactiva1_cap + e_reactiva2_cap + e_reactiva3_cap);
+
+	e_aparente1 = poten.p_aparente(phi1, null, null) * sum_horas;
+	e_aparente2 = poten.p_aparente(phi2, null, null) * sum_horas;
+	e_aparente3 = poten.p_aparente(phi3, null, null) * sum_horas;
+
+	t_e_aparente = e_aparente1 + e_aparente2 + e_aparente3;
+
+	document.getElementById("t_aparente_L1").innerHTML = e_aparente1.toFixed(2);
+	document.getElementById("t_aparente_L2").innerHTML = e_aparente2.toFixed(2);
+	document.getElementById("t_aparente_L3").innerHTML = e_aparente3.toFixed(2);
+
+	document.getElementById("t_aparente").innerHTML = t_e_aparente.toFixed(2);
+
+	
+	
+	document.getElementById("t_reactiva").innerHTML = t_e_reactiva.toFixed(2);
+
+	document.getElementById("c_reactiva_L1").innerHTML = e_reactiva1_cap.toFixed(2);
+	document.getElementById("c_reactiva_L2").innerHTML = e_reactiva2_cap.toFixed(2);
+	document.getElementById("c_reactiva_L3").innerHTML = e_reactiva3_cap.toFixed(2);
+
+
+	document.getElementById("i_reactiva_L1").innerHTML = e_reactiva1_ind.toFixed(2);
+	document.getElementById("i_reactiva_L2").innerHTML = e_reactiva2_ind.toFixed(2);
+	document.getElementById("i_reactiva_L3").innerHTML = e_reactiva3_ind.toFixed(2);
+
+
 	document.getElementById('s_activa_L1').innerHTML = e_activa1_sumi.toFixed(2);
 	document.getElementById('s_activa_L2').innerHTML = e_activa2_sumi.toFixed(2);
 	document.getElementById('s_activa_L3').innerHTML = e_activa3_sumi.toFixed(2);
@@ -506,5 +556,10 @@ function energia(){
 	document.getElementById('i_reactiva_L1').innerHTML = p_reactiva1.toFixed(2);
 
 
+}
 
+function temperatura() {
+	var temperatura = (Math.random() * (17 - 35)) + 35;
+
+	document.getElementById("temp_interno").innerHTML = temperatura.toFixed(1);
 }
