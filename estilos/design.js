@@ -1,37 +1,48 @@
 	window.onload = function() {
+		window.setInterval(function() {
+			var nombre_documento = document.title;
+			switch(nombre_documento){
+				case "Tension" : tension();
+				break;
+				case "Corriente" : corrientes();
+				break;
+				case "Potencia" : valores_potencia();
+				break;
+				case "Temperatura" : temperatura();
+				break;
+				case "Energia" : energia();
+				break;
+			}
+		}, 700);
 
-		$("#btn-tension").on("click", function() {
-			//Le pasamos el parametro _self para que abra en la misma ventana
-			window.open('tension.html', '_self');
-			window.setInterval(function() {
-				tension();
-			}, 700);			
-		});
-
-		$("#btn-potencia").on("click", function() {
-			//Le pasamos el parametro _self para que abra en la misma ventana
-			window.open('potencia.html', '_self');			
-		});
-
-		$("#btn-corriente").on("click", function() {
-			//Le pasamos el parametro _self para que abra en la misma ventana
-			window.open('corriente.html', '_self');			
-		});
-
-		$("#btn-temperatura").on("click", function() {
-			//Le pasamos el parametro _self para que abra en la misma ventana
-			window.open('temperatura.html', '_self');			
-		});
-
-		$("#btn-energia").on("click", function() {
-			//Le pasamos el parametro _self para que abra en la misma ventana
-			window.open('energia.html', '_self');			
-		});
-
-	};
 	
 	
+	$("#btn-tension").on("click", function() {
+		//Le pasamos el parametro _self para que abra en la misma ventana
+		window.open('tension.html', '_self');			
+	});
 
+	$("#btn-potencia").on("click", function() {
+		//Le pasamos el parametro _self para que abra en la misma ventana
+		window.open('potencia.html', '_self');			
+	});
+
+	$("#btn-corriente").on("click", function() {
+		//Le pasamos el parametro _self para que abra en la misma ventana
+		window.open('corriente.html', '_self');			
+	});
+
+	$("#btn-temperatura").on("click", function() {
+		//Le pasamos el parametro _self para que abra en la misma ventana
+		window.open('temperatura.html', '_self');			
+	});
+
+	$("#btn-energia").on("click", function() {
+		//Le pasamos el parametro _self para que abra en la misma ventana
+		window.open('energia.html', '_self');			
+	});
+	
+}
 
 //Creamos una clase donde estan los voltajes promedios, rms, tanto de linea como de fase
 class voltajes {
