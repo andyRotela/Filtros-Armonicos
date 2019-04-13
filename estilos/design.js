@@ -1,3 +1,38 @@
+	window.onload = function() {
+
+		$("#btn-tension").on("click", function() {
+			//Le pasamos el parametro _self para que abra en la misma ventana
+			window.open('tension.html', '_self');
+			window.setInterval(function() {
+				tension();
+			}, 700);			
+		});
+
+		$("#btn-potencia").on("click", function() {
+			//Le pasamos el parametro _self para que abra en la misma ventana
+			window.open('potencia.html', '_self');			
+		});
+
+		$("#btn-corriente").on("click", function() {
+			//Le pasamos el parametro _self para que abra en la misma ventana
+			window.open('corriente.html', '_self');			
+		});
+
+		$("#btn-temperatura").on("click", function() {
+			//Le pasamos el parametro _self para que abra en la misma ventana
+			window.open('temperatura.html', '_self');			
+		});
+
+		$("#btn-energia").on("click", function() {
+			//Le pasamos el parametro _self para que abra en la misma ventana
+			window.open('energia.html', '_self');			
+		});
+
+	};
+	
+	
+
+
 //Creamos una clase donde estan los voltajes promedios, rms, tanto de linea como de fase
 class voltajes {
 	
