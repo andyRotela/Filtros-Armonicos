@@ -1,4 +1,5 @@
 	window.onload = function() {
+		
 		window.setInterval(function() {
 			var nombre_documento = document.title;
 			switch(nombre_documento){
