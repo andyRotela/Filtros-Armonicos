@@ -1,0 +1,29 @@
+{
+  "name": "Filtros-Armonicos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack",
+    "start": "webpack-dev-server --output-public-path=/build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rickyMelida/Filtros-Armonicos.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rickyMelida/Filtros-Armonicos/issues"
+  },
+  "homepage": "https://github.com/rickyMelida/Filtros-Armonicos#readme",
+  "devDependencies": {
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.7"
+  },
+  "dependencies": {
+    "webpack-dev-server": "^3.8.0"
+  }
+}
